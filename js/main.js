@@ -5,6 +5,9 @@ const tasksList = document.getElementById("tasks_list-block");
 const taskCounter = document.getElementById("task_counter");
 const completeCounter = document.getElementById("complete_counter");
 const prev = document.querySelector(".tasks-list__prev");
+const btnAll = document.getElementById("btn_all");
+const btnComplete = document.getElementById("btn_complete");
+const btnIncomplete = document.getElementById("btn_incomplete");
 
 let arrTasks = [];
 
@@ -38,12 +41,21 @@ tasksList.addEventListener("click", deleteTask);
 
 tasksList.addEventListener("click", completeTask);
 
+btnAll.addEventListener("click", () => filterTasks("all"));
+btnComplete.addEventListener("click", () => filterTasks("complete"));
+btnIncomplete.addEventListener("click", () => filterTasks("incomplete"));
+
 // ------------Функции------------
 
 function addNewTask(event) {
   event.preventDefault();
 
   const taskText = input.value;
+
+  if (taskText === "" || !taskText || taskText.length < 5) {
+    return;
+  }
+
   taskCounter.textContent = 0;
 
   const newTask = {
@@ -124,4 +136,23 @@ function lookPrev() {
   } else {
     prev.classList.add("none");
   }
+}
+
+function filterTasks(filter) {
+  let filteredTasks;
+  if (filter === "all") {
+    filteredTasks = arrTasks;
+  }
+  if (filter === "complete") {
+    filteredTasks = arrTasks.filter((task) => task.done);
+  }
+  if (filter === "incomplete") {
+    filteredTasks = arrTasks.filter((task) => !task.done);
+  }
+  renderFilteredTasks(filteredTasks);
+}
+
+function renderFilteredTasks(tasks) {
+  tasksList.innerHTML = "";
+  tasks.forEach((task) => renderTasks(task));
 }

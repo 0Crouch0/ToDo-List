@@ -204,6 +204,8 @@ body {
 .list {
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   margin: 0 auto;
   padding: 0px 5px;
   margin-top: 34px;
@@ -322,4 +324,27 @@ body {
 
 .tasks-list__delete {
   cursor: pointer;
+}
+.btn {
+  padding: 2px 5px;
+  border: 1px solid #0d0d0d;
+  border-radius: 20px;
+  background: transparent;
+}
+
+.counter-tasks__btn-all:hover {
+  background: #2a384a;
+}
+.counter-tasks__btn-complete:hover {
+  background: #0f3b50;
+}
+.counter-tasks__btn-incomplete:hover {
+  background: #6054c6;
+}
+
+@media (max-width: 440px) {
+  .list {
+    justify-content: center;
+    gap: 20px;
+  }
 }
