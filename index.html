@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>TO-DO LIST</title>
+  </head>
+  <body>
+    <header></header>
+    <main class="content">
+      <div class="logo">
+        <img class="logo__img" src="./img/Logo.png" alt="TO-DO Logo" />
+      </div>
+      <form id="form">
+        <div class="main container">
+          <div class="main__block">
+            <input
+              type="text"
+              class="main__input"
+              id="input"
+              placeholder="Adicione uma nova tarefa"
+            />
+            <button type="submit" class="main__btn" id="set_task">Criar</button>
+          </div>
+        </div>
+      </form>
+      <div class="list container">
+        <div class="counter-tasks">
+          <p class="counter-task__name">Tarefas criadas</p>
+          <p class="counter-task__counter" id="task_counter"></p>
+        </div>
+
+        <div class="counter-tasks">
+          <p class="counter-complete__name">Concluídas</p>
+          <p class="counter-complete__counter" id="complete_counter"></p>
+        </div>
+      </div>
+      <div class="tasks-list container">
+        <div class="tasks-list__prev none" id="prev">
+          <img src="./img/Clipboard.png" alt="" class="tasks-list__img" />
+          <p class="tasks-list__text">
+            <strong>Você ainda não tem tarefas cadastradas</strong> <br />Crie
+            tarefas e organize seus itens a fazer
+          </p>
+        </div>
+        <ul class="tasks-list__tasks" id="tasks_list-block">
+          <!-- <li class="tasks-list__task">
+            <span class="tasks-list__check-task" data-action="complete"></span>
+            <p class="tasks-list__text">asdasd</p>
+            <img
+              src="./img/Vector.png"
+              alt=""
+              class="tasks-list__delete"
+              data-action="delete"
+            />
+          </li> -->
+        </ul>
+      </div>
+    </main>
+    <script src="./js/main.js"></script>
+  </body>
+  <footer></footer>
+</html>
